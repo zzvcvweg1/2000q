@@ -23,7 +23,10 @@ nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#405eb7"
 $(".container")[0].style.backgroundColor = "#000000" 
 $("#game_window")[0].style.backgroundColor = "#b52429" 
 $("#game_window")[0].style.borderColor = "#ffffff"
-document.body.background = "https://i.imgur.com/Fbhk4OV.jpeg"  
+document.body.background = "https://i.imgur.com/Fbhk4OV.jpeg"
+document.body.style.backgroundRepeat = "no-repeat"
+document.body.style.backgroundPosition = "center center"
+document.body.style.backgroundSize = "cover"
 document.getElementById("header").src = "https://i.imgur.com/hSS5ijX.png" 
 document.getElementById("wittyquote").color = "black"
 nct_stuff.themes[nct_stuff.selectedTheme].text_col = "black"
@@ -45,5 +48,9 @@ document.head.insertAdjacentHTML("beforeend", `<style>
   #menu_container,
   #state_result_container {
     background-color: #B52429;
+  }
+    #campaign_sign {
+    background-color: #B52429;
+    border-color: #000000;
   }
 </style>`);
