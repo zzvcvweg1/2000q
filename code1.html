@@ -27,5 +27,124 @@ document.body.background = "https://i.imgur.com/Fbhk4OV.jpeg"
 document.getElementById("header").src = "https://i.imgur.com/hSS5ijX.png" 
 document.getElementById("wittyquote").color = "black"
 nct_stuff.themes[nct_stuff.selectedTheme].text_col = "black"
+
+// 1948 Dawn-inspired interface details, adapted to the existing Quayle colors.
+// Keep the original theme assignments above and the original black text.
+if (!document.getElementById("quayle-2000-interface-style")) {
+  const quayleThemeStyle = document.createElement("style");
+  quayleThemeStyle.id = "quayle-2000-interface-style";
+  quayleThemeStyle.textContent = `
+/* 1948 Dawn-inspired interface details, recolored for 2000 Quayle. */
+
+/* Start button and results headings. */
+.campaign_trail_start_emphasis {
+  background-color: #D56B70;
+}
+
+#state_info h3,
+#state_result h3,
+#overall_result h3,
+.overlay_window h3,
+.inner_window_question h3 {
+  background-color: #A9B4DB;
+  color: #000000;
+}
+
+/* Pale panels complement the existing red game window and blue header. */
+#overall_result_container,
+#state_result_container,
+#menu_container,
+.inner_window_w_desc {
+  background-color: #F3DADC;
+}
+
+#campaign_sign {
+  background-color: #D56B70;
+  border-color: #405eb7;
+}
+
+#map_container {
+  background: #F8F8F8;
+  border-radius: 1px;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.08),
+              0 0 0 2px rgba(0, 0, 0, 0.04);
+}
+
+#map_footer {
+  padding-top: 1.5em;
+}
+
+/* Quiet interface polish, without replacing existing button colors. */
+#game_window button,
+#game_window input[type="button"],
+#game_window input[type="submit"] {
+  transition: background-color 0.25s ease, border-color 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+#game_window button:not(:disabled):hover,
+#game_window input[type="button"]:not(:disabled):hover,
+#game_window input[type="submit"]:not(:disabled):hover {
+  box-shadow: 0 1px 3px rgba(64, 94, 183, 0.18);
+}
+
+#game_window button:focus-visible,
+#game_window input[type="button"]:focus-visible,
+#game_window input[type="submit"]:focus-visible,
+#question_form input[type="radio"]:focus-visible + label {
+  outline: 2px solid #405eb7;
+  outline-offset: 2px;
+}
+
+/* Restrained Dawn-like window entrances. */
+@keyframes quayle-panel-arrive {
+  from { opacity: 0.94; }
+  to { opacity: 1; }
+}
+
+.overlay_window,
+#visit_window,
+#feedback_window {
+  animation: quayle-panel-arrive 0.42s ease-out;
+}
+
+/* Native scrolling behavior, just recolored to match the scenario. */
+#overall_details_container {
+  scrollbar-width: thin;
+  scrollbar-color: #D56B70 #F8F8F8;
+}
+
+#overall_details_container::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+#overall_details_container::-webkit-scrollbar-track {
+  background: #F8F8F8;
+  border-left: 1px solid #405eb7;
+}
+
+#overall_details_container::-webkit-scrollbar-thumb {
+  background: #D56B70;
+  border: 2px solid #F8F8F8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay_window,
+  #visit_window,
+  #feedback_window {
+    animation: none !important;
+  }
+
+  #game_window button,
+  #game_window input[type="button"],
+  #game_window input[type="submit"] {
+    transition: none !important;
+  }
+}
+  `;
+  document.head.appendChild(quayleThemeStyle);
+}
+
 campaignTrail_temp.global_parameter_json = JSON.parse("[{\"model\": \"campaign_trail.global_parameter\", \"pk\": 1, \"fields\": {\"vote_variable\": 1.125, \"max_swing\": 0.12, \"start_point\": 0.94, \"candidate_issue_weight\": 10.0, \"running_mate_issue_weight\": 0.0, \"issue_stance_1_max\": -0.71, \"issue_stance_2_max\": -0.3, \"issue_stance_3_max\": -0.125, \"issue_stance_4_max\": 0.125, \"issue_stance_5_max\": 0.3, \"issue_stance_6_max\": 0.71, \"global_variance\": 0.0, \"state_variance\": 0.005, \"question_count\": 30, \"default_map_color_hex\": \"#C9C9C9\", \"no_state_map_color_hex\": \"#999999\"}}]"); 
 campaignTrail_temp.temp_election_list = [{"id": 20, "year": 2000, "is_premium": 0, "display_year": "2000Q"}];
