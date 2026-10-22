@@ -18,10 +18,10 @@ credits = function () {
     alert("CREDITS:\n\n" + contributors.join("\n"));
 };
 
-// Keep the original red-and-blue palette; ensure readable text on the red panel.
+// Preserve the original red-and-blue palette and black theme text.
 nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#b52429";
 nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#405eb7";
-nct_stuff.themes[nct_stuff.selectedTheme].text_col = "white";
+nct_stuff.themes[nct_stuff.selectedTheme].text_col = "black";
 
 // Keep DOM helpers local so reloading Code 1 does not redeclare global variables.
 (() => {
@@ -34,11 +34,10 @@ nct_stuff.themes[nct_stuff.selectedTheme].text_col = "white";
     if (quayleWindow) {
         quayleWindow.style.backgroundColor = "#b52429";
         quayleWindow.style.borderColor = "#ffffff";
-        quayleWindow.style.color = "#ffffff";
     }
     document.body.background = "https://i.imgur.com/Fbhk4OV.jpeg";
     if (quayleHeader) quayleHeader.src = "https://i.imgur.com/hSS5ijX.png";
-    if (quayleQuote) quayleQuote.style.color = "#ffffff";
+    if (quayleQuote) quayleQuote.style.color = "black";
 })();
 
 campaignTrail_temp.global_parameter_json = JSON.parse("[{\"model\": \"campaign_trail.global_parameter\",\"pk\": 1,\"fields\": {\"vote_variable\": 1.125,\"max_swing\": 0.12,\"start_point\": 0.94,\"candidate_issue_weight\": 10.0,\"running_mate_issue_weight\": 0.0,\"issue_stance_1_max\": -0.71,\"issue_stance_2_max\": -0.3,\"issue_stance_3_max\": -0.125,\"issue_stance_4_max\": 0.125,\"issue_stance_5_max\": 0.3,\"issue_stance_6_max\": 0.71,\"global_variance\": 0.0,\"state_variance\": 0.005,\"question_count\": 30,\"default_map_color_hex\": \"#C9C9C9\",\"no_state_map_color_hex\": \"#999999\"}}]");
